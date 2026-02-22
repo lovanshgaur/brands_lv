@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRID HOME | Furniture for Modern Indian Living</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+</head> 
+
+<body>
+
+    <div class="grain-overlay"></div>
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <div id="container">
+
+        <nav id="main-nav">
+            <a href="#" class="logo">GRID HOME</a>
+            <div class="nav-links">
+                <a href="#categories">Shop</a>
+                <a href="#featured">Collections</a>
+                <a href="#why">About</a>
+                <a href="#custom">Custom</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#categories" onclick="closeMenu()">Shop</a>
+            <a href="#featured" onclick="closeMenu()">Collections</a>
+            <a href="#custom" onclick="closeMenu()">Custom</a>
+            <a href="#why" onclick="closeMenu()">About</a>
+        </div>
+
+        <header id="hero">
+            <div class="hero-inner">
+                <span class="tagline">Engineered for Modernity</span>
+                <h1 class="hero-title">Furniture Built For<br>Real Indian Living.</h1>
+                <p class="hero-desc">Space-optimized design meets honest, high-end materials. Furniture that actually
+                    fits urban apartments without sacrificing a shred of style.</p>
+                <div class="btn-group">
+                    <a href="#categories" class="btn dark">Shop Catalog</a>
+                    <a href="#custom" class="btn">Bespoke Design</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="trust-bar">
+            <div class="trust-point">01 / NCR & Jaipur Delivery</div>
+            <div class="trust-point">02 / 5-Year Warranty</div>
+            <div class="trust-point">03 / Solid Sheesham Base</div>
+            <div class="trust-point">04 / Artisan Built</div>
+        </div>
+
+        <main>
+            <section id="categories">
+                <div class="section-header">
+                    <span class="tagline">Explore Spaces</span>
+                    <h2>Spaces Reimagined.</h2>
+                </div>
+                <div class="grid-cats">
+                    <a href="#" class="cat-box c-large reveal">
+                        <img src="./assets/livingroom.avif" alt="Living Room">
+                        <h3>Living Room</h3>
+                    </a>
+                    <a href="#" class="cat-box c-small reveal">
+                        <img src="./assets/bedroom.avif" alt="Bedroom">
+                        <h3>Bedroom</h3>
+                    </a>
+                    <a href="#" class="cat-box c-small reveal">
+                        <img src="./assets/dining.jpg" alt="Dining">
+                        <h3>Dining Hall</h3>
+                    </a>
+                    <a href="#" class="cat-box c-large reveal">
+                        <img src="./assets/wfh.avif" alt="Work From Home">
+                        <h3>Home Atelier</h3>
+                    </a>
+                </div>
+            </section>
+
+            <section id="why">
+                <div class="section-header">
+                    <span class="tagline">The Grid Standard</span>
+                    <h2>The GRID Difference</h2>
+                </div>
+                <div class="why-strip">
+                    <div class="why-card reveal">
+                        <h4>Compact Savvy</h4>
+                        <p>Optimized for urban spatial constraints without compromising on aesthetic volume.</p>
+                    </div>
+                    <div class="why-card reveal">
+                        <h4>Heirloom Build</h4>
+                        <p>Hardware and joinery tested for generations, ensuring your investment outlasts the trends.
+                        </p>
+                    </div>
+                    <div class="why-card reveal">
+                        <h4>Global Minimal</h4>
+                        <p>A clean, architectural language that fits into contemporary Indian homes perfectly.</p>
+                    </div>
+                    <div class="why-card reveal">
+                        <h4>Custom Core</h4>
+                        <p>We believe every niche is unique. Bespoke sizing is not an extra—it's our standard.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="featured">
+                <div class="section-header">
+                    <span class="tagline">Most Loved</span>
+                    <h2>Iconic Pieces</h2>
+                </div>
+                <div class="product-grid">
+                    <a href="#" class="p-card reveal">
+                        <img src="./assets/oslo.jpg" alt="Bed">
+                        <h4>Oslo Storage Bed</h4>
+                        <p>Natural Sheesham</p>
+                    </a>
+                    <a href="#" class="p-card reveal">
+                        <img src="./assets/axis.avif" alt="Dining">
+                        <h4>Axis Dining Table</h4>
+                        <p>Solid Teak — 6P</p>
+                    </a>
+                    <a href="#" class="p-card reveal">
+                        <img src="./assets/shift.avif" alt="Desk">
+                        <h4>Shift Desk</h4>
+                        <p>Matte Oak & Steel</p>
+                    </a>
+                    <a href="#" class="p-card reveal">
+                        <img src="./assets/frame.avif" alt="TV Unit">
+                        <h4>Frame TV Console</h4>
+                        <p>Minimal Floating</p>
+                    </a>
+                </div>
+            </section>
+
+            <section id="materials">
+                <div class="section-header">
+                    <span class="tagline">Raw & Refined</span>
+                    <h2>The Elemental Palette</h2>
+                </div>
+                <div class="mat-row">
+                    <div class="mat-item" style="background-image: url('./assets/sheesham.png')">
+                        <span>A-Grade Sheesham</span>
+                    </div>
+                    <div class="mat-item" style="background-image: url('./assets/oak.png')">
+                        <span>European Oak</span>
+                    </div>
+                    <div class="mat-item" style="background-image: url('./assets/hardware.png')">
+                        <span>Solid Brass</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="custom">
+                <span class="tagline">Private Commission</span>
+                <h2>One Size Never Fits All.</h2>
+                <p>We work with you to draft furniture that fits your specific spatial constraints and stylistic vision.
+                    From site measurements to final install.</p>
+                <a href="#" class="btn dark">Book A Design Call</a>
+            </section>
+
+            <section id="social">
+                <div class="social-row reveal">
+                    <h3 class="quote">“Finally found furniture that understands the compact nature of Gurgaon
+                        apartments.”</h3>
+                    <span class="author">Neha, Gurgaon</span>
+                </div>
+                <div class="social-row reveal">
+                    <h3 class="quote">“The materials feel honest and the design is incredibly sharp. Worth every bit.”
+                    </h3>
+                    <span class="author">Rahul, Jaipur</span>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="f-brand">
+                <a href="#" class="f-logo">GRID HOME</a>
+                <p style="opacity: 0.85; font-size: 0.9rem; max-width: 350px; line-height: 1.8;">Modern Indian furniture
+                    crafted with architectural precision and a focus on small-space functionality.</p>
+            </div>
+            <div class="f-links">
+                <p>Living Collections</p>
+                <p>Bedroom Suites</p>
+                <p>Dining Catalog</p>
+                <p>Atelier Setup</p>
+            </div>
+            <div class="f-links">
+                <p>Instagram</p>
+                <p>WhatsApp</p>
+                <p>Our Studio</p>
+                <p>Legal / Policy</p>
+            </div>
+            <span class="footer-bottom-rights">Designed and Developed by <a href="https://lovansh.me/">Lovansh Gaur</a></span>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
