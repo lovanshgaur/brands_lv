@@ -54,4 +54,3 @@ ScrollTrigger.create({
     }
   }
 });
-
