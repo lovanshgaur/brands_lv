@@ -1,210 +1,697 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRID HOME | Furniture for Modern Indian Living</title>
+    <title>GRID HOME | Architectural Furniture for Modern Indian Living</title>
+    <meta name="description" content="Space-optimized solid wood furniture engineered for urban Indian apartments. Handcrafted in Jaipur using A-grade kiln-dried Sheesham, European Oak, and solid brass.">
+    <meta name="keywords" content="modern Indian furniture, Sheesham furniture, Gurgaon compact furniture, architectural woodwork Jaipur, solid wood bed, minimal desk">
+    <meta name="theme-color" content="#141413">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-</head> 
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
 <body>
 
-    <div class="grain-overlay"></div>
-    <div id="cursor"></div>
-    <div id="cursor-follower"></div>
+    <!-- Tactile grain overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
 
+    <!-- Custom Cursor elements (activated only on desktop pointer) -->
+    <div id="cursor" class="custom-cursor" aria-hidden="true"></div>
+    <div id="cursor-follower" class="custom-cursor-follower" aria-hidden="true"></div>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Global Modal Backdrop -->
+    <div id="modal-backdrop" class="modal-backdrop" aria-hidden="true"></div>
+
+    <!-- Main Wrapper -->
     <div id="container">
 
-        <nav id="main-nav">
-            <a href="#" class="logo">GRID HOME</a>
+        <!-- Navigation Bar -->
+        <nav id="main-nav" aria-label="Main Navigation">
+            <a href="#hero" class="logo" aria-label="GRID HOME Home">
+                GRID HOME<span class="logo-dot">.</span>
+            </a>
+            
             <div class="nav-links">
-                <a href="#categories">Shop</a>
-                <a href="#featured">Collections</a>
-                <a href="#why">About</a>
-                <a href="#custom">Custom</a>
+                <a href="#spaces" class="nav-link">Spaces</a>
+                <a href="#featured" class="nav-link">Catalog</a>
+                <a href="#materials" class="nav-link">Materials</a>
+                <a href="#calculator" class="nav-link">Space Fit</a>
+                <a href="#why" class="nav-link">Craft</a>
+                <a href="#custom" class="nav-link">Bespoke</a>
             </div>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-            </button>
+
+            <div class="nav-actions">
+                <button type="button" id="spec-sheet-btn" class="nav-action-btn" aria-label="Open Project Spec Sheet Cart">
+                    <span class="action-icon">📐</span>
+                    <span class="action-text">Spec Sheet</span>
+                    <span id="cart-count-badge" class="badge">0</span>
+                </button>
+                <button type="button" id="book-consult-nav-btn" class="btn btn-sm btn-dark">Book Call</button>
+                <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
 
-        <div class="mobile-nav" id="mobile-nav">
-            <a href="#categories" onclick="closeMenu()">Shop</a>
-            <a href="#featured" onclick="closeMenu()">Collections</a>
-            <a href="#custom" onclick="closeMenu()">Custom</a>
-            <a href="#why" onclick="closeMenu()">About</a>
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+            <div class="mobile-nav-header">
+                <span class="logo">GRID HOME<span class="logo-dot">.</span></span>
+                <button type="button" class="mobile-close-btn" id="mobile-close-btn" aria-label="Close navigation menu">&times;</button>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="#spaces" class="mobile-link">Spaces Reimagined</a>
+                <a href="#featured" class="mobile-link">Iconic Catalog</a>
+                <a href="#materials" class="mobile-link">The Elemental Palette</a>
+                <a href="#calculator" class="mobile-link">Space Fit Calculator</a>
+                <a href="#why" class="mobile-link">The Grid Difference</a>
+                <a href="#custom" class="mobile-link">Bespoke Commission</a>
+            </div>
+            <div class="mobile-nav-footer">
+                <button type="button" id="mobile-spec-sheet-btn" class="btn btn-block btn-outline">
+                    View Spec Sheet (<span id="mobile-cart-count">0</span> items)
+                </button>
+                <button type="button" id="mobile-consult-btn" class="btn btn-block btn-dark">
+                    Book A Design Call
+                </button>
+                <div class="mobile-contact-info">
+                    <p>Jaipur Atelier • Delhi NCR Studio</p>
+                    <p>contact@gridhome.in • +91 98290 14820</p>
+                </div>
+            </div>
         </div>
 
+        <!-- Hero Section -->
         <header id="hero">
             <div class="hero-inner">
-                <span class="tagline">Engineered for Modernity</span>
-                <h1 class="hero-title">Furniture Built For<br>Real Indian Living.</h1>
-                <p class="hero-desc">Space-optimized design meets honest, high-end materials. Furniture that actually
-                    fits urban apartments without sacrificing a shred of style.</p>
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span class="tagline">01 // Architectural Woodwork • Handcrafted in Jaipur</span>
+                </div>
+                <h1 class="hero-title">Furniture Built For<br>Real Indian Living<span class="hero-period">.</span></h1>
+                <p class="hero-desc">
+                    Space-optimized proportions meet honest, heirloom-grade solid timber. Architectural furniture engineered for modern Indian urban apartments—without sacrificing a shred of soul or craftsmanship.
+                </p>
                 <div class="btn-group">
-                    <a href="#categories" class="btn dark">Shop Catalog</a>
-                    <a href="#custom" class="btn">Bespoke Design</a>
+                    <a href="#featured" class="btn btn-dark">Explore Catalog</a>
+                    <button type="button" id="hero-custom-btn" class="btn btn-outline">Bespoke Design Call</button>
                 </div>
             </div>
         </header>
 
-        <div class="trust-bar">
-            <div class="trust-point">01 / NCR & Jaipur Delivery</div>
-            <div class="trust-point">02 / 5-Year Warranty</div>
-            <div class="trust-point">03 / Solid Sheesham Base</div>
-            <div class="trust-point">04 / Artisan Built</div>
-        </div>
+        <!-- Trust & Architectural Metrics Strip -->
+        <aside class="trust-bar" aria-label="Trust highlights">
+            <div class="trust-point">
+                <span class="tp-num">01 /</span>
+                <span class="tp-text"> White-Glove Install</span>
+            </div>
+            <div class="trust-point">
+                <span class="tp-num">02 /</span>
+                <span class="tp-text">10-Year Solid Timber Warranty</span>
+            </div>
+            <div class="trust-point">
+                <span class="tp-num">03 /</span>
+                <span class="tp-text">Kiln-Dried A-Grade Sheesham & Oak</span>
+            </div>
+            <div class="trust-point">
+                <span class="tp-num">04 /</span>
+                <span class="tp-text">Mortise-&-Tenon Hand Joinery</span>
+            </div>
+        </aside>
 
         <main>
-            <section id="categories">
+            <!-- Spaces Reimagined (Interactive Category Grid) -->
+            <section id="spaces" class="section-spaces">
                 <div class="section-header">
-                    <span class="tagline">Explore Spaces</span>
-                    <h2>Spaces Reimagined.</h2>
+                    <span class="tagline">Curated Environments</span>
+                    <h2>Spaces Reimagined<span class="accent-dot">.</span></h2>
+                    <p class="section-subtitle">Click any space to filter the master catalog below to that environment.</p>
                 </div>
                 <div class="grid-cats">
-                    <a href="#" class="cat-box c-large reveal">
-                        <img src="./assets/livingroom.avif" alt="Living Room">
-                        <h3>Living Room</h3>
-                    </a>
-                    <a href="#" class="cat-box c-small reveal">
-                        <img src="./assets/bedroom.avif" alt="Bedroom">
-                        <h3>Bedroom</h3>
-                    </a>
-                    <a href="#" class="cat-box c-small reveal">
-                        <img src="./assets/dining.jpg" alt="Dining">
-                        <h3>Dining Hall</h3>
-                    </a>
-                    <a href="#" class="cat-box c-large reveal">
-                        <img src="./assets/wfh.avif" alt="Work From Home">
-                        <h3>Home Atelier</h3>
-                    </a>
+                    <div class="cat-box c-large reveal" data-category="living" role="button" tabindex="0" aria-label="Filter by Living Room category">
+                        <img src="./assets/livingroom.jpg" alt="Minimalist living room featuring low-profile modular furniture">
+                        <div class="cat-content">
+                            <span class="cat-tag">01 // Compact Lounging</span>
+                            <h3>Living Room</h3>
+                            <p class="cat-desc">Low-profile modular sofas, acoustic media consoles, and floating pedestals.</p>
+                            <span class="cat-action">View Pieces &rarr;</span>
+                        </div>
+                    </div>
+                    <div class="cat-box c-small reveal" data-category="bedroom" role="button" tabindex="0" aria-label="Filter by Bedroom category">
+                        <img src="./assets/bedroom.jpg" alt="Warm wooden bedroom with integrated storage bed">
+                        <div class="cat-content">
+                            <span class="cat-tag">02 // Rest & Sanctuary</span>
+                            <h3>Bedroom</h3>
+                            <p class="cat-desc">Hydraulic storage beds and space-saving floating nightstands.</p>
+                            <span class="cat-action">View Pieces &rarr;</span>
+                        </div>
+                    </div>
+                    <div class="cat-box c-small reveal" data-category="dining" role="button" tabindex="0" aria-label="Filter by Dining category">
+                        <img src="./assets/dining.jpg" alt="Architectural dining table made of solid teak">
+                        <div class="cat-content">
+                            <span class="cat-tag">03 // The Gathering Table</span>
+                            <h3>Dining Hall</h3>
+                            <p class="cat-desc">Chamfered edge solid wood tables built for intimate dining.</p>
+                            <span class="cat-action">View Pieces &rarr;</span>
+                        </div>
+                    </div>
+                    <div class="cat-box c-large reveal" data-category="atelier" role="button" tabindex="0" aria-label="Filter by Home Atelier category">
+                        <img src="./assets/wfh.jpg" alt="Ergonomic minimalist work from home desk setup">
+                        <div class="cat-content">
+                            <span class="cat-tag">04 // Focused Thought</span>
+                            <h3>Home Atelier</h3>
+                            <p class="cat-desc">Desks with integrated cable troughs and solid timber shelving.</p>
+                            <span class="cat-action">View Pieces &rarr;</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <section id="why">
+            <!-- Master Product Catalog & Iconic Pieces -->
+            <section id="featured" class="section-featured">
+                <div class="section-header-row">
+                    <div class="section-header">
+                        <span class="tagline">Honest Proportions</span>
+                        <h2>Iconic Pieces & Catalog<span class="accent-dot">.</span></h2>
+                    </div>
+                    <!-- Catalog Filters -->
+                    <div class="catalog-filter-bar" role="tablist" aria-label="Filter furniture by space">
+                        <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Pieces</button>
+                        <button type="button" class="filter-btn" data-filter="living" role="tab" aria-selected="false">Living Room</button>
+                        <button type="button" class="filter-btn" data-filter="bedroom" role="tab" aria-selected="false">Bedroom</button>
+                        <button type="button" class="filter-btn" data-filter="dining" role="tab" aria-selected="false">Dining</button>
+                        <button type="button" class="filter-btn" data-filter="atelier" role="tab" aria-selected="false">Home Atelier</button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="product-grid" id="product-grid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </section>
+
+            <!-- The Elemental Palette (Materials Section - Mobile Responsive!) -->
+            <section id="materials" class="section-materials">
+                <div class="section-header">
+                    <span class="tagline">Raw & Refined Timber</span>
+                    <h2>The Elemental Palette<span class="accent-dot">.</span></h2>
+                    <p class="section-subtitle">We build exclusively in slow-grown, sustainably sourced solid hardwoods. No hollow particle board. Click any material for technical specs & grain characteristics.</p>
+                </div>
+                
+                <div class="mat-grid">
+                    <div class="mat-card reveal" data-material="sheesham" role="button" tabindex="0" aria-label="View A-Grade Sheesham details">
+                        <div class="mat-img-wrap" style="background-image: url('./assets/sheesham.jpg')">
+                            <span class="mat-badge">Signature Hardwood</span>
+                        </div>
+                        <div class="mat-body">
+                            <h3>A-Grade Sheesham</h3>
+                            <span class="mat-latin">Dalbergia sissoo • North India</span>
+                            <p>Dense, interlocked grain with deep warm honey and amber hues. Kiln-dried to 8–10% moisture to prevent monsoon expansion.</p>
+                            <div class="mat-metrics">
+                                <span><strong>Hardness:</strong> 1,660 lbf</span>
+                                <span><strong>Finish:</strong> Matte Organic Hardwax</span>
+                            </div>
+                            <span class="mat-inspect-cta">Inspect Timber Specs &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="mat-card reveal" data-material="oak" role="button" tabindex="0" aria-label="View European Oak details">
+                        <div class="mat-img-wrap" style="background-image: url('./assets/oak.jpg')">
+                            <span class="mat-badge">Architectural Minimal</span>
+                        </div>
+                        <div class="mat-body">
+                            <h3>European White Oak</h3>
+                            <span class="mat-latin">Quercus alba • Sustainable Forestry</span>
+                            <p>Straight, tranquil grain with neutral blonde warmth. Finished with non-toxic, zero-VOC oils that resist household spills.</p>
+                            <div class="mat-metrics">
+                                <span><strong>Hardness:</strong> 1,360 lbf</span>
+                                <span><strong>Finish:</strong> Zero-VOC PU Oil</span>
+                            </div>
+                            <span class="mat-inspect-cta">Inspect Timber Specs &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="mat-card reveal" data-material="brass" role="button" tabindex="0" aria-label="View Solid Brass details">
+                        <div class="mat-img-wrap" style="background-image: url('./assets/hardware.jpg')">
+                            <span class="mat-badge">Hand-Lathed</span>
+                        </div>
+                        <div class="mat-body">
+                            <h3>Solid Architectural Brass</h3>
+                            <span class="mat-latin">Pure C26000 Brass • Precision Milled</span>
+                            <p>Unlacquered solid metal pulls and foot-caps that age gracefully, developing an authentic, rich heirloom patina over decades.</p>
+                            <div class="mat-metrics">
+                                <span><strong>Material:</strong> 100% Solid Brass</span>
+                                <span><strong>Aging:</strong> Natural Living Finish</span>
+                            </div>
+                            <span class="mat-inspect-cta">Inspect Hardware Specs &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Space Fit & Room Clearance Calculator -->
+            <section id="calculator" class="section-calculator">
+                <div class="calculator-inner reveal">
+                    <div class="calculator-header">
+                        <span class="tagline">Architectural Planning Tool</span>
+                        <h2>Will It Fit Your Room?<span class="accent-dot">.</span></h2>
+                        <p>Urban Indian apartments require mindful spatial clearances. Enter your room dimensions to see recommended walking corridors and optimal piece placements.</p>
+                    </div>
+
+                    <div class="calculator-grid">
+                        <div class="calc-inputs">
+                            <div class="input-group">
+                                <label for="calc-room-type">Select Room Preset</label>
+                                <select id="calc-room-type" class="custom-select">
+                                    <option value="bed-master">Master Bedroom (12 ft &times; 14 ft)</option>
+                                    <option value="bed-compact">Compact Bedroom (10 ft &times; 12 ft)</option>
+                                    <option value="living-standard">Living Hall (14 ft &times; 18 ft)</option>
+                                    <option value="dining-nook">Dining Nook (10 ft &times; 11 ft)</option>
+                                    <option value="study-atelier">Study / Home Atelier (9 ft &times; 11 ft)</option>
+                                    <option value="custom">Custom Dimensions...</option>
+                                </select>
+                            </div>
+
+                            <div class="dim-inputs-row" id="custom-dim-row" style="display: none;">
+                                <div class="input-group">
+                                    <label for="calc-room-width">Room Width (Feet)</label>
+                                    <input type="number" id="calc-room-width" min="6" max="40" value="12" class="custom-input">
+                                </div>
+                                <div class="input-group">
+                                    <label for="calc-room-length">Room Length (Feet)</label>
+                                    <input type="number" id="calc-room-length" min="6" max="40" value="14" class="custom-input">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="calc-piece-select">Select Furniture Piece</label>
+                                <select id="calc-piece-select" class="custom-select">
+                                    <option value="oslo-bed">Oslo Storage Bed (King: 78&Prime; &times; 72&Prime;)</option>
+                                    <option value="axis-table">Axis Dining Table (6-Seater: 72&Prime; &times; 36&Prime;)</option>
+                                    <option value="shift-desk">Shift Work Desk (54&Prime; &times; 26&Prime;)</option>
+                                    <option value="frame-console">Frame Floating TV Console (68&Prime; &times; 16&Prime;)</option>
+                                    <option value="kyoto-chair">Kyoto Low-Profile Lounge Chair (30&Prime; &times; 32&Prime;)</option>
+                                </select>
+                            </div>
+
+                            <button type="button" id="calc-compute-btn" class="btn btn-dark btn-block">Calculate Clearance Corridor</button>
+                        </div>
+
+                        <div class="calc-results" id="calc-results-box">
+                            <div class="res-badge" id="calc-fit-status">Optimal Architectural Fit</div>
+                            <h3 id="calc-fit-title">Excellent Clearance Corridor</h3>
+                            <div class="calc-metrics-row">
+                                <div class="metric-box">
+                                    <span class="m-val" id="calc-clearance-val">42&Prime;</span>
+                                    <span class="m-lbl">Walking Clearance</span>
+                                </div>
+                                <div class="metric-box">
+                                    <span class="m-val" id="calc-footprint-val">23%</span>
+                                    <span class="m-lbl">Room Footprint</span>
+                                </div>
+                                <div class="metric-box">
+                                    <span class="m-val" id="calc-comfort-val">High</span>
+                                    <span class="m-lbl">Airflow & Circulation</span>
+                                </div>
+                            </div>
+                            <p class="calc-advice" id="calc-fit-advice">
+                                Leaves generous walking corridors around all three sides. Fits standard wardrobe door swings and bedside pathways effortlessly without visual heaviness.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose GRID (The Grid Standard) -->
+            <section id="why" class="section-why">
                 <div class="section-header">
                     <span class="tagline">The Grid Standard</span>
-                    <h2>The GRID Difference</h2>
+                    <h2>Engineered for High-Density Living<span class="accent-dot">.</span></h2>
+                    <p class="section-subtitle">How we solve the four biggest headaches of buying solid wood furniture in urban India.</p>
                 </div>
                 <div class="why-strip">
                     <div class="why-card reveal">
+                        <span class="why-step">01</span>
                         <h4>Compact Savvy</h4>
-                        <p>Optimized for urban spatial constraints without compromising on aesthetic volume.</p>
+                        <p>Engineered for high-rise apartment footprints (750 to 2200 sq.ft) with zero visual bulk, tapered undercuts, and hydraulic storage to maximize floor area.</p>
                     </div>
                     <div class="why-card reveal">
-                        <h4>Heirloom Build</h4>
-                        <p>Hardware and joinery tested for generations, ensuring your investment outlasts the trends.
-                        </p>
+                        <span class="why-step">02</span>
+                        <h4>Heirloom Joinery</h4>
+                        <p>Traditional blind mortise-and-tenon joints combined with German Blum concealed runners and heavy-duty structural steel fasteners that never loosen.</p>
                     </div>
                     <div class="why-card reveal">
-                        <h4>Global Minimal</h4>
-                        <p>A clean, architectural language that fits into contemporary Indian homes perfectly.</p>
+                        <span class="why-step">03</span>
+                        <h4>Monsoon Resilient</h4>
+                        <p>Vacuum-pressure treated and seasoned strictly down to 8–10% moisture content in Jaipur kilns to prevent warping across extreme Delhi winters and humid monsoons.</p>
                     </div>
                     <div class="why-card reveal">
+                        <span class="why-step">04</span>
                         <h4>Custom Core</h4>
-                        <p>We believe every niche is unique. Bespoke sizing is not an extra—it's our standard.</p>
+                        <p>We believe every floor plan has quirks. Millimeter-level sizing adjustments for odd structural columns, beams, and niches are our standard practice.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="featured">
+            <!-- Bespoke Commission Section -->
+            <section id="custom" class="section-custom">
+                <div class="custom-inner reveal">
+                    <span class="tagline">Private Commission & Custom Sizing</span>
+                    <h2>One Size Never Fits All<span class="accent-dot">.</span></h2>
+                    <p class="custom-lead">
+                        Have an awkward column in your Gurgaon master bedroom, an unconventional dining alcove in South Delhi, or specific floor-to-ceiling dimension requirements? We draft bespoke pieces to your exact architectural blueprints.
+                    </p>
+                    <div class="custom-features">
+                        <div class="cf-item"><span>&bull;</span> Free In-Home Laser Measurements (NCR & Jaipur)</div>
+                        <div class="cf-item"><span>&bull;</span> 3D CAD Renders & Finish Samples in 48 Hours</div>
+                        <div class="cf-item"><span>&bull;</span> Direct White-Glove Installation by Our Master Joiners</div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" id="book-consult-main-btn" class="btn btn-dark">Book A Design Consultation</button>
+                        <a href="https://wa.me/919829014820?text=Hello%20GRID%20HOME%2C%20I%20am%20interested%20in%20a%20custom%20furniture%20piece." target="_blank" rel="noopener noreferrer" class="btn btn-outline">Chat on WhatsApp</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Client Stories & Verified Installations -->
+            <section id="reviews" class="section-reviews">
                 <div class="section-header">
-                    <span class="tagline">Most Loved</span>
-                    <h2>Iconic Pieces</h2>
+                    <span class="tagline">Voices from Urban Apartments</span>
+                    <h2>Homes Furnished with Precision<span class="accent-dot">.</span></h2>
                 </div>
-                <div class="product-grid">
-                    <a href="#" class="p-card reveal">
-                        <img src="./assets/oslo.jpg" alt="Bed">
-                        <h4>Oslo Storage Bed</h4>
-                        <p>Natural Sheesham</p>
-                    </a>
-                    <a href="#" class="p-card reveal">
-                        <img src="./assets/axis.avif" alt="Dining">
-                        <h4>Axis Dining Table</h4>
-                        <p>Solid Teak — 6P</p>
-                    </a>
-                    <a href="#" class="p-card reveal">
-                        <img src="./assets/shift.avif" alt="Desk">
-                        <h4>Shift Desk</h4>
-                        <p>Matte Oak & Steel</p>
-                    </a>
-                    <a href="#" class="p-card reveal">
-                        <img src="./assets/frame.avif" alt="TV Unit">
-                        <h4>Frame TV Console</h4>
-                        <p>Minimal Floating</p>
-                    </a>
-                </div>
-            </section>
-
-            <section id="materials">
-                <div class="section-header">
-                    <span class="tagline">Raw & Refined</span>
-                    <h2>The Elemental Palette</h2>
-                </div>
-                <div class="mat-row">
-                    <div class="mat-item" style="background-image: url('./assets/sheesham.png')">
-                        <span>A-Grade Sheesham</span>
-                    </div>
-                    <div class="mat-item" style="background-image: url('./assets/oak.png')">
-                        <span>European Oak</span>
-                    </div>
-                    <div class="mat-item" style="background-image: url('./assets/hardware.png')">
-                        <span>Solid Brass</span>
-                    </div>
-                </div>
-            </section>
-
-            <section id="custom">
-                <span class="tagline">Private Commission</span>
-                <h2>One Size Never Fits All.</h2>
-                <p>We work with you to draft furniture that fits your specific spatial constraints and stylistic vision.
-                    From site measurements to final install.</p>
-                <a href="#" class="btn dark">Book A Design Call</a>
-            </section>
-
-            <section id="social">
-                <div class="social-row reveal">
-                    <h3 class="quote">“Finally found furniture that understands the compact nature of Gurgaon
-                        apartments.”</h3>
-                    <span class="author">Neha, Gurgaon</span>
-                </div>
-                <div class="social-row reveal">
-                    <h3 class="quote">“The materials feel honest and the design is incredibly sharp. Worth every bit.”
-                    </h3>
-                    <span class="author">Rahul, Jaipur</span>
+                <div class="reviews-grid">
+                    <article class="review-card reveal">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="quote">&ldquo;Finally found furniture that truly understands the compact nature of DLF Phase 5 Gurgaon apartments without feeling cheap or lightweight. The Oslo bed storage is cavernous yet completely hidden.&rdquo;</p>
+                        <div class="review-meta">
+                            <span class="author">Neha &amp; Siddharth Rao</span>
+                            <span class="location">The Crest, DLF 5 • Gurgaon</span>
+                        </div>
+                    </article>
+                    <article class="review-card reveal">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="quote">&ldquo;The materials feel honest and the design is incredibly sharp. The reverse chamfer edge on our Axis dining table gives our dining space an airy, sculptural feel. Worth every single rupee.&rdquo;</p>
+                        <div class="review-meta">
+                            <span class="author">Arjun Singhania</span>
+                            <span class="location">C-Scheme • Jaipur</span>
+                        </div>
+                    </article>
+                    <article class="review-card reveal">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="quote">&ldquo;The recessed cable tray and brass drawer pull on the Shift desk solved three years of cable mess in my study. Beautiful solid oak that will outlive me.&rdquo;</p>
+                        <div class="review-meta">
+                            <span class="author">Dr. Rhea Sen</span>
+                            <span class="location">Greater Kailash II • New Delhi</span>
+                        </div>
+                    </article>
                 </div>
             </section>
         </main>
 
-        <footer>
-            <div class="f-brand">
-                <a href="#" class="f-logo">GRID HOME</a>
-                <p style="opacity: 0.85; font-size: 0.9rem; max-width: 350px; line-height: 1.8;">Modern Indian furniture
-                    crafted with architectural precision and a focus on small-space functionality.</p>
+        <!-- Footer -->
+        <footer id="main-footer">
+            <div class="f-col f-brand">
+                <a href="#hero" class="f-logo">GRID HOME<span class="logo-dot">.</span></a>
+                <p class="f-desc">
+                    Modern Indian furniture crafted with architectural precision and a focus on small-space functionality. Sustainable solid timber, non-toxic finishes, and heirloom joinery.
+                </p>
+                <div class="f-locations">
+                    <p><strong>Workshop:</strong> RIICO Industrial Area, Mansarovar, Jaipur 302020</p>
+                    <p><strong>Studio:</strong> Sector 43, Golf Course Road, Gurgaon 122002</p>
+                </div>
             </div>
-            <div class="f-links">
-                <p>Living Collections</p>
-                <p>Bedroom Suites</p>
-                <p>Dining Catalog</p>
-                <p>Atelier Setup</p>
+
+            <div class="f-col f-links">
+                <h4>Collections</h4>
+                <ul>
+                    <li><a href="#spaces" data-filter-link="living">Living Room Suites</a></li>
+                    <li><a href="#spaces" data-filter-link="bedroom">Storage Bedrooms</a></li>
+                    <li><a href="#spaces" data-filter-link="dining">Solid Wood Dining</a></li>
+                    <li><a href="#spaces" data-filter-link="atelier">Home Atelier & Desks</a></li>
+                    <li><a href="#custom">Bespoke Architectural Fits</a></li>
+                </ul>
             </div>
-            <div class="f-links">
-                <p>Instagram</p>
-                <p>WhatsApp</p>
-                <p>Our Studio</p>
-                <p>Legal / Policy</p>
+
+            <div class="f-col f-links">
+                <h4>Craft &amp; Service</h4>
+                <ul>
+                    <li><a href="#materials">Wood &amp; Hardware Palette</a></li>
+                    <li><a href="#why">10-Year Timber Warranty</a></li>
+                    <li><a href="#calculator">Space Fit Calculator</a></li>
+                    <li><a href="#custom">In-Home Laser Sizing</a></li>
+                    <li><a href="https://wa.me/919829014820" target="_blank" rel="noopener noreferrer">WhatsApp Atelier (+91 98290 14820)</a></li>
+                </ul>
             </div>
-            <span class="footer-bottom-rights">Designed and Developed by <a href="https://lovansh.me/">Lovansh Gaur</a></span>
+
+            <div class="f-col f-newsletter">
+                <h4>2026 Lookbook</h4>
+                <p>Subscribe to receive our seasonal architectural catalog, timber provenance notes, and new release drops.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <div class="nl-input-wrap">
+                        <input type="email" id="nl-email" placeholder="architect@studio.com" required aria-label="Email address for newsletter">
+                        <button type="submit" class="btn btn-dark btn-sm">Subscribe</button>
+                    </div>
+                    <span id="nl-status" class="nl-status" aria-live="polite"></span>
+                </form>
+            </div>
+
+            <!-- Full-width Sub-footer Bar -->
+            <div class="footer-bottom-bar">
+                <div class="fb-left">
+                    <span>&copy; 2026 GRID HOME Woodworks Pvt. Ltd. All rights reserved.</span>
+                    <span class="credits">Designed &amp; Developed by <a href="https://lovansh.me/" target="_blank" rel="noopener noreferrer">Lovansh Gaur</a></span>
+                </div>
+                <div class="fb-right">
+                    <a href="#hero" class="back-to-top" id="back-to-top-btn" aria-label="Back to top">
+                        Back to Top &uarr;
+                    </a>
+                </div>
+            </div>
         </footer>
+
     </div>
 
+    <!-- Modals & Drawers -->
+
+    <!-- 1. Product Detail & Quick Specs Modal -->
+    <div id="product-modal" class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-p-title" aria-hidden="true">
+        <div class="modal-dialog-content">
+            <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close product specification modal">&times;</button>
+            <div class="modal-product-layout">
+                <div class="modal-img-col">
+                    <img id="modal-p-img" src="./assets/oslo.jpg" alt="Selected furniture piece preview">
+                    <div class="modal-img-badge" id="modal-p-tag">Solid Hardwood</div>
+                </div>
+                <div class="modal-info-col">
+                    <span class="modal-category" id="modal-p-category">Bedroom Suite</span>
+                    <h2 class="modal-title" id="modal-p-title">Oslo Storage Bed</h2>
+                    <div class="modal-price" id="modal-p-price">₹58,000</div>
+                    <p class="modal-desc" id="modal-p-desc">
+                        Minimalist platform bed featuring hydraulic gas-lift mechanism revealing 720 liters of dust-sealed underbed storage. Built in solid A-grade Sheesham with rounded corner profiles.
+                    </p>
+
+                    <!-- Finish Selection -->
+                    <div class="modal-option-group">
+                        <label class="opt-label">Select Timber Finish:</label>
+                        <div class="finish-pill-group" id="modal-finish-options">
+                            <button type="button" class="finish-pill active" data-finish="Natural Honey Sheesham">Natural Honey Sheesham</button>
+                            <button type="button" class="finish-pill" data-finish="Smoked European Oak">Smoked European Oak</button>
+                            <button type="button" class="finish-pill" data-finish="Dark Walnut Stain">Dark Walnut Stain</button>
+                        </div>
+                    </div>
+
+                    <!-- Size / Dimension Selection -->
+                    <div class="modal-option-group">
+                        <label class="opt-label">Dimensions / Configuration:</label>
+                        <div class="size-pill-group" id="modal-size-options">
+                            <button type="button" class="size-pill active" data-size="King (78″ × 72″)" data-price-delta="0">King (78″ × 72″)</button>
+                            <button type="button" class="size-pill" data-size="Queen (78″ × 60″)" data-price-delta="-4000">Queen (78″ × 60″)</button>
+                        </div>
+                    </div>
+
+                    <!-- Architectural Specs Table -->
+                    <div class="modal-specs-list">
+                        <div class="spec-row">
+                            <span class="s-key">Joinery Standard:</span>
+                            <span class="s-val" id="modal-p-joinery">Blind Mortise &amp; Tenon</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="s-key">Hardware:</span>
+                            <span class="s-val" id="modal-p-hardware">German Blum / Suspa Gas Lifts</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="s-key">Lead Time:</span>
+                            <span class="s-val">10–14 Days (White-Glove Delivery)</span>
+                        </div>
+                    </div>
+
+                    <!-- Modal Action Row -->
+                    <div class="modal-action-row">
+                        <div class="qty-stepper">
+                            <button type="button" id="modal-qty-minus" aria-label="Decrease quantity">&minus;</button>
+                            <span id="modal-qty-val">1</span>
+                            <button type="button" id="modal-qty-plus" aria-label="Increase quantity">&#43;</button>
+                        </div>
+                        <button type="button" id="modal-add-to-cart-btn" class="btn btn-dark flex-1">
+                            Add To Spec Sheet
+                        </button>
+                        <a id="modal-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="Inquire about this piece on WhatsApp">
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Bespoke Consultation Modal -->
+    <div id="consultation-modal" class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="consult-modal-title" aria-hidden="true">
+        <div class="modal-dialog-content modal-consult-content">
+            <button type="button" class="modal-close-btn" id="consult-close-btn" aria-label="Close consultation modal">&times;</button>
+            <div class="consult-form-wrap">
+                <span class="tagline">Private Commission</span>
+                <h2 id="consult-modal-title">Book An Architectural Design Consultation<span class="accent-dot">.</span></h2>
+                <p class="consult-sub">Schedule an in-home laser measurement visit (Delhi NCR &amp; Jaipur) or an online 3D spatial planning call with our lead designers.</p>
+
+                <form id="consultation-form">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="c-name">Full Name *</label>
+                            <input type="text" id="c-name" required placeholder="e.g. Siddharth Mehra" class="custom-input">
+                        </div>
+                        <div class="input-group">
+                            <label for="c-phone">Phone / WhatsApp Number *</label>
+                            <input type="tel" id="c-phone" required placeholder="e.g. +91 98110 54321" class="custom-input">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="c-city">City / Region *</label>
+                            <select id="c-city" required class="custom-select">
+                                <option value="Gurgaon">Gurgaon / DLF</option>
+                                <option value="New Delhi">New Delhi / NCR</option>
+                                <option value="Noida">Noida / Greater Noida</option>
+                                <option value="Jaipur">Jaipur</option>
+                                <option value="Bengaluru">Bengaluru</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Other">Other Metro</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="c-space">Space Scope *</label>
+                            <select id="c-space" required class="custom-select">
+                                <option value="Single Custom Piece">Single Custom Piece (Bed, Table, Desk)</option>
+                                <option value="Living & Dining Suite">Living &amp; Dining Area</option>
+                                <option value="Master Bedroom Suite">Master Bedroom Suite</option>
+                                <option value="Full 2BHK/3BHK Apartment Fitout">Full 2BHK / 3BHK Apartment Fitout</option>
+                                <option value="Commercial / Studio Atelier">Commercial Studio / Office</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="c-notes">Spatial Constraints or Blueprint Notes</label>
+                        <textarea id="c-notes" rows="3" placeholder="Tell us about specific room dimensions, unusual columns, or preferred timber finishes..." class="custom-textarea"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-dark btn-block">Confirm Consultation Request &rarr;</button>
+                        <p class="form-disclaimer">Zero consultation charges. We review blueprints and respond with 3D CAD sketches within 48 hours.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Material Inspector Modal -->
+    <div id="material-modal" class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="mat-modal-title" aria-hidden="true">
+        <div class="modal-dialog-content modal-mat-content">
+            <button type="button" class="modal-close-btn" id="mat-close-btn" aria-label="Close timber specification modal">&times;</button>
+            <div class="mat-modal-layout">
+                <div class="mat-modal-img" id="mat-modal-img"></div>
+                <div class="mat-modal-info">
+                    <span class="tagline">Hardwood Provenance</span>
+                    <h2 id="mat-modal-title">A-Grade Sheesham</h2>
+                    <p class="mat-modal-latin" id="mat-modal-latin">Dalbergia sissoo • Certified Plantation</p>
+                    <p class="mat-modal-desc" id="mat-modal-desc"></p>
+                    
+                    <div class="mat-spec-table">
+                        <div class="spec-row">
+                            <span class="s-key">Janka Hardness Rating:</span>
+                            <span class="s-val" id="mat-modal-hardness">1,660 lbf</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="s-key">Kiln Seasoning:</span>
+                            <span class="s-val" id="mat-modal-moisture">8% – 10% target moisture</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="s-key">Surface Coating:</span>
+                            <span class="s-val" id="mat-modal-finish">Matte Italian Poly-Oil (Food-Safe)</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="s-key">Maintenance:</span>
+                            <span class="s-val" id="mat-modal-care">Wipe with soft lint-free cotton. Organic beeswax twice yearly.</span>
+                        </div>
+                    </div>
+
+                    <button type="button" id="mat-modal-close-action" class="btn btn-outline btn-block">Close Inspector</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Project Spec Sheet / Cart Slide-out Drawer -->
+    <aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Project Spec Sheet" aria-hidden="true">
+        <div class="cart-drawer-header">
+            <div class="cd-title-wrap">
+                <h3>Project Spec Sheet</h3>
+                <span class="cd-count" id="drawer-item-count">0 Items</span>
+            </div>
+            <button type="button" class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Spec Sheet">&times;</button>
+        </div>
+
+        <div class="cart-drawer-body" id="cart-drawer-items">
+            <!-- Dynamic Cart Items -->
+            <div class="cart-empty-state" id="cart-empty-state">
+                <span class="empty-icon">📐</span>
+                <p>Your project spec sheet is currently empty.</p>
+                <p class="sub">Browse our collection and add pieces to request an itemized quotation or bespoke sizing.</p>
+                <a href="#featured" class="btn btn-sm btn-dark" id="empty-cart-browse-btn">Explore Catalog</a>
+            </div>
+        </div>
+
+        <div class="cart-drawer-footer" id="cart-drawer-footer" style="display: none;">
+            <div class="cart-summary-row">
+                <span>Estimated Subtotal:</span>
+                <span class="cart-total-price" id="cart-total-price">₹0</span>
+            </div>
+            <div class="cart-delivery-note">
+                <span>✓ Includes direct white-glove assembly in Delhi NCR &amp; Jaipur</span>
+            </div>
+            <div class="cart-btn-stack">
+                <button type="button" id="cart-checkout-btn" class="btn btn-dark btn-block">
+                    Submit Project Quotation Request
+                </button>
+                <button type="button" id="cart-whatsapp-order-btn" class="btn btn-outline btn-block">
+                    Inquire via WhatsApp
+                </button>
+                <button type="button" id="cart-clear-btn" class="clear-cart-link">Clear Spec Sheet</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- External Script Dependencies (Loaded via CDN) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 
 </body>
-
 </html>
